@@ -12,7 +12,7 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
 * Front-end : Angular
 ## Designs de l'application
 ### Classe
-![Diagramme Fil Rouge](https://user-images.githubusercontent.com/85711688/190918767-eb00be42-1ebe-40b5-bf41-5d0b66c763a2.png)
+![Car rental](https://user-images.githubusercontent.com/85711688/195206690-dc7775dd-4405-431c-8c97-294d497e25db.png)
 ### Uses cases
 #### Client
 ![image](https://user-images.githubusercontent.com/85711688/190919416-f95e0eeb-0120-4ac8-9d51-5ad643e0e199.png)

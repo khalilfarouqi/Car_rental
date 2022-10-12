@@ -14,10 +14,7 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
 ### Classe
 ![Car rental](https://user-images.githubusercontent.com/85711688/195206690-dc7775dd-4405-431c-8c97-294d497e25db.png)
 ### Uses cases
-#### Client
-![image](https://user-images.githubusercontent.com/85711688/190919416-f95e0eeb-0120-4ac8-9d51-5ad643e0e199.png)
-#### Admin
-![image](https://user-images.githubusercontent.com/85711688/190919431-300e8697-99e8-4748-bc89-3e6d13fae93d.png)
+![Use case](https://user-images.githubusercontent.com/85711688/195388926-ec4b6cd8-a3be-4feb-bc0b-69265e0f1bc0.png)
 ### Séquence
 #### Client
 ##### Consultation de la page d’accueil :

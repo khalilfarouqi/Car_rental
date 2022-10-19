@@ -1,6 +1,7 @@
 package com.app.entity;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -25,5 +26,12 @@ public class User {
 	
 	@Column(name = "PassWord")
 	private String PassWord;
+	
+	@ManyToOne
+    @JoinColumn(name="role_id", nullable=false)
+    private Role role;
+	
+	@OneToMany(mappedBy = "user")
+    private Set<Order> orders;
 
 }

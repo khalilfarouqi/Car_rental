@@ -25,5 +25,8 @@ public class Photo {
 	
 	@Column(name = "Photo4")
 	private String Photo_4;
+	
+	@OneToOne(mappedBy = "photo")
+    private Car car;
 
 }

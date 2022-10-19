@@ -1,6 +1,7 @@
 package com.app.entity;
 
 import java.time.Year;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -82,4 +83,11 @@ public class Car {
 	private Boolean Bris_Glace_Pneus;
 	
 	//-----------------------------------------------
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "photo_id", referencedColumnName = "id")
+    private Photo photo;
+	
+	@OneToMany(mappedBy = "car")
+    private Set<Order> orders;
 }

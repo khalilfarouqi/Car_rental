@@ -18,12 +18,14 @@ public class Order {
 	
 	@Column(name = "Contry")
 	private String Contry;
-	
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "BookingCity")
-	private String Booking_City;//enum
-	
+	private City Booking_City;
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "ReturnCity")
-	private String Return_City;//enum
+	private City Return_City;
 	
 	@Column(name = "StartDate")
 	private LocalDate Start_Date;

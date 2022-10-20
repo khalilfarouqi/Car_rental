@@ -19,9 +19,10 @@ public class Car {
 	
 	@Column(name = "Name")
 	private String Name;
-	
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "Brande")
-	private String Brande;//enum
+	private Brande brande;
 	
 	@Column(name = "Matricule")
 	private String Matricule;
@@ -37,27 +38,30 @@ public class Car {
 	
 	@Column(name = "Consumption")
 	private Double Consumption;
-	
-	@Column(name = "Fioul")
-	private String Fioul;//enum
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "fuel")
+	private Fuel fuel;
 	
 	@Column(name = "Bluetooth")
 	private Boolean Bluetooth;
 	
 	@Column(name = "AirBag")
 	private Boolean AirBag;
-	
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "GearBox")
-	private String GearBox;//enum
+	private GearBox gearBox;
 	
 	@Column(name = "Seat")
 	private int Seat;
 	
 	@Column(name = "Door")
 	private int Door;
-	
-	@Column(name = "TypeCar")
-	private String Type_Car;//enum
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "Style")
+	private Style style;
 	
 	@Column(name = "SizeCofer")
 	private int Size_Cofer;

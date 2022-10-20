@@ -19,9 +19,10 @@ public class Client extends User {
 	
 	@Column(name = "LastName")
 	private String Last_Name;
-	
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "Gender")
-	private String Gender;//enum
+	private Gender gender;
 	
 	@Column(name = "Age")
 	private int Age;

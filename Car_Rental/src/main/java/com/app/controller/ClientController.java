@@ -39,7 +39,7 @@ public class ClientController {
 		return new ResponseEntity<Car>(serviceCarImpl.getById(ID), HttpStatus.OK);
 	}
 	
-//	-------------------------------------------User-------------------------------------------
+//	-------------------------------------------Client-------------------------------------------
 	
 	@GetMapping("/ListClient")
 	public List<Client> getAllClient(){

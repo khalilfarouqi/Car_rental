@@ -1,8 +1,9 @@
 package com.app.sevice;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface IService <T> {
+public interface IService <T> extends Serializable {
 	
 	List<T> getAll();
 

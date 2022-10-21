@@ -1,9 +1,11 @@
 package com.app.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.*;
 
@@ -18,8 +20,9 @@ public class User {
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "LastCheckIn")
-	private LocalDate Last_CheckIn;
+	private Date Last_CheckIn;
 	
 	@Column(name = "UserName")
 	private String UserName;

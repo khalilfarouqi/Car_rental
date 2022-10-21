@@ -1,8 +1,10 @@
 package com.app.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.*;
 
@@ -27,11 +29,13 @@ public class Order {
 	@Column(name = "ReturnCity")
 	private City Return_City;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "StartDate")
-	private LocalDate Start_Date;
+	private Date Start_Date;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "EndDate")
-	private LocalDate End_Date;
+	private Date End_Date;
 	
 	@Column(name = "ClientAge")
 	private int Client_Age;

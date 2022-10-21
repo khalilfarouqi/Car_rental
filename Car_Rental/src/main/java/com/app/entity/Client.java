@@ -1,8 +1,10 @@
 package com.app.entity;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.*;
 
@@ -45,11 +47,13 @@ public class Client extends User {
 	@Column(name = "Licence")
 	private String Licence;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "DateLicence")
-	private LocalDate Date_Licence;
+	private Date Date_Licence;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "DateCreation")
-	private LocalDate Date_Creation;
+	private Date Date_Creation;
 	
 	@Column(name = "Email")
 	private String Email;

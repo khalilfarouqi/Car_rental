@@ -11,6 +11,8 @@ import com.app.sevice.IService;
 
 @Service
 public class ServiceClientImpl implements IService<Client> {
+
+	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	private ClientRepo clientRepo;

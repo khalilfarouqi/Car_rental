@@ -1,6 +1,5 @@
 package com.app.entity;
 
-import java.time.Year;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -31,7 +30,7 @@ public class Car {
 	private Double Mileage;
 	
 	@Column(name = "Model")
-	private Year Model;
+	private int Model;
 	
 	@Column(name = "HorsPower")
 	private int HorsPower;

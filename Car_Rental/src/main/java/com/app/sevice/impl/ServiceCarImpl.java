@@ -14,7 +14,7 @@ public class ServiceCarImpl implements IService<Car> {
 	
 	@Autowired
 	private CarRepo carRepo;
-	
+
 	@Override
 	public List<Car> getAll() {
 		return carRepo.findAll();

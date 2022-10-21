@@ -2,7 +2,6 @@ package com.app.controller;
 
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,24 +9,25 @@ import com.app.entity.*;
 import com.app.sevice.impl.*;
 
 @RestController
-@EnableAutoConfiguration
 @RequestMapping(value = "/Admin") 
 public class AdminController {
 	
 	private ServiceCarImpl serviceCarImpl;
 	private ServiceUserImpl serviceUserImpl;
+	private ServiceClientImpl serviceClientImpl;
 	private ServiceOrderImpl serviceOrderImpl;
 	
-	public AdminController(ServiceCarImpl serviceCarImpl, ServiceUserImpl serviceUserImpl,
+	public AdminController(ServiceCarImpl serviceCarImpl, ServiceUserImpl serviceUserImpl, ServiceClientImpl serviceClientImpl,
 			ServiceOrderImpl serviceOrderImpl) {
 		super();
 		this.serviceCarImpl = serviceCarImpl;
 		this.serviceUserImpl = serviceUserImpl;
+		this.serviceClientImpl = serviceClientImpl;
 		this.serviceOrderImpl = serviceOrderImpl;
 	}
 	
 //	-------------------------------------------Car-------------------------------------------
-	
+
 	@GetMapping("/ListCar")
 	public List<Car> getAllCar(){
 		return serviceCarImpl.getAll();
@@ -82,6 +82,33 @@ public class AdminController {
 		return new ResponseEntity<String>("User deleted successfully!.", HttpStatus.OK);
 	}
 	
+//	-------------------------------------------Client-------------------------------------------
+	
+	@GetMapping("/ListClient")
+	public List<Client> getAllClient(){
+		return serviceClientImpl.getAll();
+	}
+	
+	@PostMapping("/SaveClient")
+	public ResponseEntity<Client> saveClient(@RequestBody Client client){
+		return new ResponseEntity<Client>(serviceClientImpl.save(client), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/GetClient/{id}")
+	public ResponseEntity<Client> getClientById(@PathVariable("id") Long ID){
+		return new ResponseEntity<Client>(serviceClientImpl.getById(ID), HttpStatus.OK);
+	}
+	
+	@PutMapping("/UpdateClient/{id}")
+	public ResponseEntity<Client> updateClient(@PathVariable("id") Long ID,@RequestBody Client client){
+		return new ResponseEntity<Client>(serviceClientImpl.update(client, ID), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/DeleteClient/{id}")
+	public ResponseEntity<String> deleteClientById(@PathVariable("id") Long ID){
+		serviceClientImpl.deleteById(ID);
+		return new ResponseEntity<String>("Client deleted successfully!.", HttpStatus.OK);
+	}
 //	-------------------------------------------Order-------------------------------------------
 	
 	@GetMapping("/ListOrder")

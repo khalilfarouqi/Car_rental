@@ -3,7 +3,9 @@ package com.app;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.app.entity.Car;
 import com.app.entity.Client;
+import com.app.sevice.impl.ServiceCarImpl;
 import com.app.sevice.impl.ServiceClientImpl;
 
 @SpringBootTest
@@ -12,7 +14,7 @@ class CarRentalApplicationTests {
 	@Test
 	void contextLoads() {
 		
-		Client client = new Client();
+		/*Client client = new Client();
 		
 		client.setAdress("adress1");
 		client.setAge(25);
@@ -36,8 +38,21 @@ class CarRentalApplicationTests {
 			System.out.println(e.getMessage());
 		}
 
-		adminController.save(client);
+		adminController.save(client);*/
 		
+		Car car = new Car();
+		
+		car.setName("Login");
+		
+		ServiceCarImpl servCar = new ServiceCarImpl();
+		
+		try {
+			servCar.save(car);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		servCar.save(car);
 		
 	}
 

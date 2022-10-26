@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Car;
+import com.app.exception.ResourceNotFoundException;
 import com.app.repository.CarRepo;
 import com.app.sevice.IService;
 
@@ -32,29 +33,36 @@ public class ServiceCarImpl implements IService<Car> {
 
 	@Override
 	public Car update(Car car, Long id) {
-		return null;
-		/*Car existingCar = carRepo.findById(id)
+		//return null;
+		Car existingCar = carRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("photoRepository", "Id", id));
 		
-		existingCar.setAirConditione(car.getAirConditione());
+		existingCar.setAirBag(car.getAirBag());
 		existingCar.setBluetooth(car.getBluetooth());
-		existingCar.setBrand(car.getBrand());
-		existingCar.setColor(car.getColor());
-		existingCar.setDescription(car.getDescription());
-		existingCar.setDoors(car.getDoors());
+		existingCar.setBrande(car.getBrande());
+		existingCar.setBris_Glace_Pneus(car.getBris_Glace_Pneus());
+		existingCar.setCDM(car.getCDM());
+		existingCar.setConsumption(car.getConsumption());
 		existingCar.setFuel(car.getFuel());
-		existingCar.setFuelConsomation(car.getFuelConsomation());
-		existingCar.setGearbox(car.getGearbox());
+		existingCar.setGearBox(car.getGearBox());
+		existingCar.setHorsPower(car.getHorsPower());
+		existingCar.setMileage(car.getMileage());
+		existingCar.setModel(car.getModel());
+		existingCar.setMatricule(car.getMatricule());
 		existingCar.setName(car.getName());
+		existingCar.setOrders(car.getOrders());
 		existingCar.setPhoto(car.getPhoto());
-		existingCar.setPower(car.getPower());
-		existingCar.setPrix(car.getPrix());
-		existingCar.setReservation(car.getReservation());
-		existingCar.setSeats(car.getSeats());
+		existingCar.setPrice(car.getPrice());
+		existingCar.setProtection_Vol(car.getProtection_Vol());
+		existingCar.setRate(car.getRate());
+		existingCar.setRespo_Civile(car.getRespo_Civile());
+		existingCar.setSeat(car.getSeat());
+		existingCar.setSize_Cofer(car.getSize_Cofer());
+		existingCar.setStyle(car.getStyle());
 
 		carRepo.save(existingCar);
 
-		return existingCar;*/
+		return existingCar;/**/
 	}
 
 	@Override

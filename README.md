@@ -2,7 +2,7 @@
 * Contexte        : app web de location de voiture
 * Date            : 10/10/2022
 * Version         : 0.2
-* Etat du projet  : Conception
+* Etat du projet  : Testing BackEnd and IPA
 ----------------------------------------------------------
 # Project de location de voiture
 Spring Boot application avec Angular on utilisant PostgreSQL database.
@@ -32,6 +32,7 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
 * DataBase    : 75 %
 * Back-End    : 80 %
 * Front-End   : 00 %
+* Testing     : 25 %
 ---
 # Mode
-😎
+😝

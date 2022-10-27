@@ -33,9 +33,8 @@ public class ServiceCarImpl implements IService<Car> {
 
 	@Override
 	public Car update(Car car, Long id) {
-		//return null;
 		Car existingCar = carRepo.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("photoRepository", "Id", id));
+				.orElseThrow(() -> new ResourceNotFoundException("carRepository", "Id", id));
 		
 		existingCar.setAirBag(car.getAirBag());
 		existingCar.setBluetooth(car.getBluetooth());
@@ -62,7 +61,7 @@ public class ServiceCarImpl implements IService<Car> {
 
 		carRepo.save(existingCar);
 
-		return existingCar;/**/
+		return existingCar;
 	}
 
 	@Override

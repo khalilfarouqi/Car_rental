@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Order;
+import com.app.exception.ResourceNotFoundException;
 import com.app.repository.OrderRepo;
 import com.app.sevice.IService;
 
@@ -32,8 +33,23 @@ public class ServiceOrderImpl implements IService<Order> {
 
 	@Override
 	public Order update(Order order, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Order existingOrder = orderRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("orderRepository", "Id", id));
+		
+		existingOrder.setBooking_City(existingOrder.getBooking_City());
+		existingOrder.setCar(existingOrder.getCar());
+		existingOrder.setClient_Age(existingOrder.getClient_Age());
+		existingOrder.setContry(existingOrder.getContry());
+		existingOrder.setEnd_Date(existingOrder.getEnd_Date());
+		existingOrder.setOrder_Status(existingOrder.getOrder_Status());
+		existingOrder.setReturn_City(existingOrder.getReturn_City());
+		existingOrder.setStart_Date(existingOrder.getStart_Date());
+		existingOrder.setType_Insurance(existingOrder.getType_Insurance());
+		existingOrder.setUser(existingOrder.getUser());
+		
+		orderRepo.save(existingOrder);
+		
+		return existingOrder;
 	}
 
 	@Override

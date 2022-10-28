@@ -16,14 +16,16 @@ public class AdminController {
 	private ServiceUserImpl serviceUserImpl;
 	private ServiceClientImpl serviceClientImpl;
 	private ServiceOrderImpl serviceOrderImpl;
+	private ServicePhotoImpl servicePhotoImpl;
 	
 	public AdminController(ServiceCarImpl serviceCarImpl, ServiceUserImpl serviceUserImpl, ServiceClientImpl serviceClientImpl,
-			ServiceOrderImpl serviceOrderImpl) {
+			ServiceOrderImpl serviceOrderImpl, ServicePhotoImpl servicePhotoImpl) {
 		super();
 		this.serviceCarImpl = serviceCarImpl;
 		this.serviceUserImpl = serviceUserImpl;
 		this.serviceClientImpl = serviceClientImpl;
 		this.serviceOrderImpl = serviceOrderImpl;
+		this.servicePhotoImpl = servicePhotoImpl;
 	}
 	
 //	-------------------------------------------Car-------------------------------------------
@@ -138,6 +140,33 @@ public class AdminController {
 		return new ResponseEntity<String>("Order deleted successfully!.", HttpStatus.OK);
 	}
 	
+//	-------------------------------------------Client-------------------------------------------
+	
+	@GetMapping("/ListPhoto")
+	public List<Photo> getAllPhoto(){
+		return servicePhotoImpl.getAll();
+	}
+	
+	@PostMapping("/SavePhoto")
+	public ResponseEntity<Photo> savePhoto(@RequestBody Photo photo){
+		return new ResponseEntity<Photo>(servicePhotoImpl.save(photo), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/GetPhoto/{id}")
+	public ResponseEntity<Photo> getPhotoById(@PathVariable("id") Long ID){
+		return new ResponseEntity<Photo>(servicePhotoImpl.getById(ID), HttpStatus.OK);
+	}
+	
+	@PutMapping("/UpdatePhoto/{id}")
+	public ResponseEntity<Photo> updatePhoto(@PathVariable("id") Long ID,@RequestBody Photo photo){
+		return new ResponseEntity<Photo>(servicePhotoImpl.update(photo, ID), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/DeletePhoto/{id}")
+	public ResponseEntity<String> deletePhotoById(@PathVariable("id") Long ID){
+		servicePhotoImpl.deleteById(ID);
+		return new ResponseEntity<String>("Photo deleted successfully!.", HttpStatus.OK);
+	}
 	
 	
 }

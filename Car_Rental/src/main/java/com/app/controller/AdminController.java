@@ -45,7 +45,8 @@ public class AdminController {
 	
 	@PutMapping("/UpdateCar/{id}")
 	public ResponseEntity<Car> updateCar(@PathVariable("id") Long ID,@RequestBody Car car){
-		return new ResponseEntity<Car>(serviceCarImpl.update(car, ID), HttpStatus.OK);
+		serviceCarImpl.update(car, ID);
+		return new ResponseEntity<>(serviceCarImpl.getById(ID), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/DeleteCar/{id}")

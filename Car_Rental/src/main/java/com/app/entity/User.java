@@ -1,6 +1,7 @@
 package com.app.entity;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -39,6 +40,6 @@ public class User {
     private Role role;
 	
 	@OneToMany(mappedBy = "user")
-    private Set<Order> orders;
+    private List<Order> orders;
 
 }

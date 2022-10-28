@@ -1,6 +1,6 @@
 package com.app.entity;
 
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -96,5 +96,5 @@ public class Car {
     private Photo photo;
 	
 	@OneToMany(mappedBy = "car")
-    private Set<Order> orders;
+    private List<Order> orders;
 }

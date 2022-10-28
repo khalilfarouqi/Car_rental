@@ -47,8 +47,7 @@ public class AdminController {
 	
 	@PutMapping("/UpdateCar/{id}")
 	public ResponseEntity<Car> updateCar(@PathVariable("id") Long ID,@RequestBody Car car){
-		serviceCarImpl.update(car, ID);
-		return new ResponseEntity<>(serviceCarImpl.getById(ID), HttpStatus.OK);
+		return new ResponseEntity<Car>(serviceCarImpl.update(car, ID), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/DeleteCar/{id}")
@@ -140,7 +139,7 @@ public class AdminController {
 		return new ResponseEntity<String>("Order deleted successfully!.", HttpStatus.OK);
 	}
 	
-//	-------------------------------------------Client-------------------------------------------
+//	-------------------------------------------Photo-------------------------------------------
 	
 	@GetMapping("/ListPhoto")
 	public List<Photo> getAllPhoto(){

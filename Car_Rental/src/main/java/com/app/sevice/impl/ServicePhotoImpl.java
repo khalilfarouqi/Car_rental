@@ -3,12 +3,14 @@ package com.app.sevice.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.entity.Photo;
 import com.app.exception.ResourceNotFoundException;
 import com.app.repository.PhotoRepo;
 import com.app.sevice.IService;
 
+@Service
 public class ServicePhotoImpl implements IService<Photo> {
 	
 	@Autowired

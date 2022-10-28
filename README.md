@@ -32,7 +32,7 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
 * DataBase    : 77 %
 * Back-End    : 80 %
 * Front-End   : 00 %
-* Testing     : 25 %
+* Testing     : 30 %
 ---
 # Mode
 😝

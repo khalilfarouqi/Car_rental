@@ -36,11 +36,11 @@ public class ServicePhotoImpl implements IService<Photo> {
 		Photo existingPhoto = photoRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("photoRepository", "Id", id));
 		
-		existingPhoto.setCar(existingPhoto.getCar());
 		existingPhoto.setPhoto_1(existingPhoto.getPhoto_1());
 		existingPhoto.setPhoto_2(existingPhoto.getPhoto_2());
 		existingPhoto.setPhoto_3(existingPhoto.getPhoto_3());
 		existingPhoto.setPhoto_4(existingPhoto.getPhoto_4());
+		existingPhoto.setCar(existingPhoto.getCar());
 		
 		photoRepo.save(existingPhoto);
 		

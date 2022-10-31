@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import java.util.List;
+import java.util.function.DoubleToIntFunction;
 
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -37,24 +38,44 @@ public class AdminController {
 	
 	@PostMapping("/SaveCar")
 	public ResponseEntity<Car> saveCar(@RequestBody Car car){
-		return new ResponseEntity<Car>(serviceCarImpl.save(car), HttpStatus.CREATED);
+		try {
+			return new ResponseEntity<Car>(serviceCarImpl.save(car), HttpStatus.CREATED);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping("/GetCar/{id}")
 	public ResponseEntity<Car> getCarById(@PathVariable("id") Long ID){
-		return new ResponseEntity<Car>(serviceCarImpl.getById(ID), HttpStatus.OK);
+		try {
+			return new ResponseEntity<Car>(serviceCarImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@PutMapping("/UpdateCar/{id}")
 	public ResponseEntity<Car> updateCar(@PathVariable("id") Long ID,@RequestBody Car car){
-		serviceCarImpl.update(car, ID);
-		return new ResponseEntity<>(serviceCarImpl.getById(ID), HttpStatus.OK);
+		try {
+			serviceCarImpl.update(car, ID);
+			return new ResponseEntity<>(serviceCarImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@DeleteMapping("/DeleteCar/{id}")
 	public ResponseEntity<String> deleteCarById(@PathVariable("id") Long ID){
-		serviceCarImpl.deleteById(ID);
-		return new ResponseEntity<String>("Car deleted successfully!.", HttpStatus.OK);
+		try {
+			serviceCarImpl.deleteById(ID);
+			return new ResponseEntity<String>("Car deleted successfully!.", HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 //	-------------------------------------------User-------------------------------------------

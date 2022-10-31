@@ -39,7 +39,6 @@ public class AdminController {
 	
 	@PostMapping("/SaveCar")
 	public ResponseEntity<Car> saveCar(@RequestBody @NotNull Car car){
-		System.out.println(car.toString());
 		return new ResponseEntity<Car>(serviceCarImpl.save(car), HttpStatus.CREATED);
 	}
 	
@@ -90,46 +89,88 @@ public class AdminController {
 	
 	@GetMapping("/GetUser/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable("id") Long ID){
-		return new ResponseEntity<User>(serviceUserImpl.getById(ID), HttpStatus.OK);
+		try {
+			return new ResponseEntity<User>(serviceUserImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@PutMapping("/UpdateUser/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable("id") Long ID,@RequestBody User user){
-		return new ResponseEntity<User>(serviceUserImpl.update(user, ID), HttpStatus.OK);
+		try {
+			serviceUserImpl.update(user, ID);
+			return new ResponseEntity<>(serviceUserImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@DeleteMapping("/DeleteUser/{id}")
 	public ResponseEntity<String> deleteUserById(@PathVariable("id") Long ID){
-		serviceUserImpl.deleteById(ID);
-		return new ResponseEntity<String>("User deleted successfully!.", HttpStatus.OK);
+		try {
+			serviceUserImpl.deleteById(ID);
+			return new ResponseEntity<String>("User deleted successfully!.", HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 //	-------------------------------------------Client-------------------------------------------
 	
 	@GetMapping("/ListClient")
 	public List<Client> getAllClient(){
-		return serviceClientImpl.getAll();
+		try {
+			return serviceClientImpl.getAll();
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return null;
+		}
 	}
 	
 	@PostMapping("/SaveClient")
 	public ResponseEntity<Client> saveClient(@RequestBody Client client){
-		return new ResponseEntity<Client>(serviceClientImpl.save(client), HttpStatus.CREATED);
+		try {
+			return new ResponseEntity<Client>(serviceClientImpl.save(client), HttpStatus.CREATED);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping("/GetClient/{id}")
 	public ResponseEntity<Client> getClientById(@PathVariable("id") Long ID){
-		return new ResponseEntity<Client>(serviceClientImpl.getById(ID), HttpStatus.OK);
+		try {
+			return new ResponseEntity<Client>(serviceClientImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@PutMapping("/UpdateClient/{id}")
 	public ResponseEntity<Client> updateClient(@PathVariable("id") Long ID,@RequestBody Client client){
-		return new ResponseEntity<Client>(serviceClientImpl.update(client, ID), HttpStatus.OK);
+		try {
+			serviceClientImpl.update(client, ID);
+			return new ResponseEntity<>(serviceClientImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@DeleteMapping("/DeleteClient/{id}")
 	public ResponseEntity<String> deleteClientById(@PathVariable("id") Long ID){
-		serviceClientImpl.deleteById(ID);
-		return new ResponseEntity<String>("Client deleted successfully!.", HttpStatus.OK);
+		try {
+			serviceClientImpl.deleteById(ID);
+			return new ResponseEntity<String>("Client deleted successfully!.", HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println("--------> " + e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 //	-------------------------------------------Order-------------------------------------------
 	

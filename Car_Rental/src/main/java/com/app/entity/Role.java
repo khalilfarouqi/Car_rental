@@ -1,6 +1,6 @@
 package com.app.entity;
 
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -24,6 +24,6 @@ public class Role {
 	private String Name;
 	
 	@OneToMany(mappedBy = "role")
-    private Set<User> user;
+    private List<User> user;
 	
 }

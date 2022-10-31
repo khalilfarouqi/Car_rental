@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "ce37b7c0-3214-47cf-8a78-e830f9edfbca",
+		"name": "Car Rental",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22984183"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/ListUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"ListUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/GetUser/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"GetUser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SaveUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\"     : \"client\",\r\n    \"passWord\"     : \"client\",\r\n    \"role\"       : {\r\n            \"id\":2\r\n        }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/SaveUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"SaveUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUser",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\"     : \"Client\",\r\n    \"passWord\"     : \"Client\",\r\n    \"role\"       : {\r\n            \"id\":2\r\n        }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/UpdateUser/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"UpdateUser",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteUser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/DeleteUser/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"DeleteUser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Car",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/ListCar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"ListCar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetByID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/GetCar/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"GetCar",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SaveCar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"airBag\"            : \"true\",\r\n    \"bluetooth\"         : \"true\",\r\n    \"bris_Glace_Pneus\"  : \"false\",\r\n    \"cdm\"               : \"false\",\r\n    \"consumption\"       : 4,\r\n    \"door\"              : 5,\r\n    \"hors_power\"        : 6,\r\n    \"matricule\"         : \"1234 A 33\",\r\n    \"mileage\"           : 250,\r\n    \"model\"             : 2022,\r\n    \"name\"              : \"Login\",\r\n    \"price\"             : 200,\r\n    \"protection_Vol\"    : \"true\",\r\n    \"rate\"              : 3.5,\r\n    \"respo_Civile\"      : \"true\",\r\n    \"seat\"              : 5,\r\n    \"size_cofer\"        : 528,\r\n    \"brande\"            : \"Dacia\",\r\n    \"fuel\"              : \"Diesel\",\r\n    \"gearBox\"           : \"Manual\",\r\n    \"style\"             : \"Sedan\",\r\n    \"photo\"          : {\r\n            \"id\" : 6\r\n        }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/SaveCar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"SaveCar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"photo\"          : {\r\n            \"id\" : 6\r\n        }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/UpdateCar/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"UpdateCar",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteCar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/DeleteCar/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"DeleteCar",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/ListOrder",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"ListOrder"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/GetOrder/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"GetOrder",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateOrder",
+							"request": {
+								"method": "PUT",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteOrder",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Client",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/ListClient",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"ListClient"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/GetClient/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"GetClient",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SaveClient",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\"            : 3,\r\n    \"adress\"        : \"adress1\",\r\n    \"age\"           : 25,\r\n    \"cin\"           : \"J521847\",\r\n    \"cantry\"        : \"Morocco\",\r\n    \"city\"          : \"Agadir\",\r\n    \"date_creation\" : \"2022/10/21\",\r\n    \"date_licence\"  : \"2022/10/25\",\r\n    \"email\"         : \"email@gmail.com\",\r\n    \"first_name\"    : \"khalil\",\r\n    \"last_name\"     : \"farouqi\",\r\n    \"licence\"       : \"10/123456\",\r\n    \"tel\"           : \"0638153545\",\r\n    \"vol_numbre\"    : 1,\r\n    \"gender\"        : \"Monsieur\",\r\n    \"last_check_in\" : \"\",\r\n    \"user_name\"     : \"client\",\r\n    \"pass_word\"     : \"client\",\r\n    \"role\"       : {\r\n            \"id\":2\r\n        }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/SaveClient",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"SaveClient"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateClient",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/UpdateClient/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"UpdateClient",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteClient",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/DeleteClient/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"DeleteClient",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Photo",
+					"item": [
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/ListPhoto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"ListPhoto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/GetPhoto/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"GetPhoto",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SavePhoto",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\"        : 1,\r\n    \"photo_1\"   : \"bit.ly/3fgZzlz\",\r\n    \"photo_2\"   : \"shorturl.at/bmOQY\",\r\n    \"photo_3\"   : \"shorturl.at/hlX37\",\r\n    \"photo_4\"   : \"shorturl.at/mJRW0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/SavePhoto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"SavePhoto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdatePhoto",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"photo_1\" : \"ggg\",\r\n    \"photo_2\" : \"ggg\",\r\n    \"photo_3\" : \"ggg\",\r\n    \"photo_4\" : \"ggg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8088/Admin/UpdatePhoto/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"UpdatePhoto",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeletePhoto",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/Admin/DeletePhoto/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"Admin",
+										"DeletePhoto",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Client",
+					"item": []
+				},
+				{
+					"name": "Car",
+					"item": []
+				},
+				{
+					"name": "Order",
+					"item": []
+				}
+			]
+		}
+	]
+}

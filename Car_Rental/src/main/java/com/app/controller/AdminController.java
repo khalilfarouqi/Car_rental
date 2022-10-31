@@ -3,6 +3,7 @@ package com.app.controller;
 import java.util.List;
 import java.util.function.DoubleToIntFunction;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,13 +38,9 @@ public class AdminController {
 	}
 	
 	@PostMapping("/SaveCar")
-	public ResponseEntity<Car> saveCar(@RequestBody Car car){
-		try {
-			return new ResponseEntity<Car>(serviceCarImpl.save(car), HttpStatus.CREATED);
-		}catch (Exception e){
-			System.out.println("--------> " + e.getMessage());
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+	public ResponseEntity<Car> saveCar(@RequestBody @NotNull Car car){
+		System.out.println(car.toString());
+		return new ResponseEntity<Car>(serviceCarImpl.save(car), HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/GetCar/{id}")
@@ -57,7 +54,8 @@ public class AdminController {
 	}
 	
 	@PutMapping("/UpdateCar/{id}")
-	public ResponseEntity<Car> updateCar(@PathVariable("id") Long ID,@RequestBody Car car){
+	public ResponseEntity<Car> updateCar(@PathVariable("id") Long ID,@RequestBody @NotNull Car car){
+		//System.out.println(car.getPhoto().toString());
 		try {
 			serviceCarImpl.update(car, ID);
 			return new ResponseEntity<>(serviceCarImpl.getById(ID), HttpStatus.OK);

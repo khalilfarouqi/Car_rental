@@ -55,15 +55,15 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
             U ❌
             D ✔️
 # Client Controller
-* Car     : R 🕑
-* Order   : C 🕑
-            R 🕑
-            U 🕑
-            D 🕑
-* Client  : C 🕑
-            R 🕑
-            U 🕑
-            D 🕑
+* Car     : R ✔️
+* Order   : C ✔️
+            R ✔️
+            U ❌
+            D ✔️
+* Client  : C ✔️
+            R ✔️
+            U ❌
+            D ✔️
 ---
 # Mode
 🤗

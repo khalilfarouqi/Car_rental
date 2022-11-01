@@ -54,7 +54,6 @@ public class AdminController {
 	
 	@PutMapping("/UpdateCar/{id}")
 	public ResponseEntity<Car> updateCar(@PathVariable("id") Long ID,@RequestBody @NotNull Car car){
-		//System.out.println(car.getPhoto().toString());
 		try {
 			serviceCarImpl.update(car, ID);
 			return new ResponseEntity<>(serviceCarImpl.getById(ID), HttpStatus.OK);

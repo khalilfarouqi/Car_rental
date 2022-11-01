@@ -36,11 +36,11 @@ public class ServiceUserImpl implements IService<User> {
 		User existingUser = userRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("userRepository", "Id", id));
 		
-		existingUser.setLast_CheckIn(existingUser.getLast_CheckIn());
-		existingUser.setOrders(existingUser.getOrders());
-		existingUser.setPassWord(existingUser.getPassWord());
-		existingUser.setRole(existingUser.getRole());
-		existingUser.setUserName(existingUser.getUserName());
+		existingUser.setLast_CheckIn(user.getLast_CheckIn());
+		existingUser.setOrders(user.getOrders());
+		existingUser.setPassWord(user.getPassWord());
+		existingUser.setRole(user.getRole());
+		existingUser.setUserName(user.getUserName());
 		
 		userRepo.save(existingUser);
 		

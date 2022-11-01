@@ -26,7 +26,6 @@ public class Client extends User {
 	@Column(name = "Gender")
 	private Gender gender;
 
-	//Null
 	@Column(name = "Age")
 	private int Age;
 	

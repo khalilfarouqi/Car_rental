@@ -29,10 +29,10 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
 ---
 # Etat d'avancement
 * Conception  : 90 %
-* DataBase    : 77 %
-* Back-End    : 80 %
+* DataBase    : 95 %
+* Back-End    : 90 %
 * Front-End   : 00 %
-* Testing     : 36 %
+* Testing     : 89 %
 ---
 # Admin Controller
 * User    : C ✔️
@@ -41,10 +41,10 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
             D ✔️
 * Car     : C ✔️
             R ✔️
-            U ❌
+            U ✔️
             D ✔️
 * Order   : R ✔️
-            U ❌
+            U ✔️
             D ✔️
 * Client  : C ✔️
             R ✔️
@@ -52,13 +52,13 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
             D ✔️
 * Photo   : C ✔️
             R ✔️
-            U ❌
+            U ✔️
             D ✔️
 # Client Controller
 * Car     : R ✔️
 * Order   : C ✔️
             R ✔️
-            U ❌
+            U ✔️
             D ✔️
 * Client  : C ✔️
             R ✔️

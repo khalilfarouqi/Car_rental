@@ -36,16 +36,16 @@ public class ServiceOrderImpl implements IService<Order> {
 		Order existingOrder = orderRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("orderRepository", "Id", id));
 		
-		existingOrder.setBooking_City(existingOrder.getBooking_City());
-		existingOrder.setCar(existingOrder.getCar());
-		existingOrder.setClient_Age(existingOrder.getClient_Age());
-		existingOrder.setContry(existingOrder.getContry());
-		existingOrder.setEnd_Date(existingOrder.getEnd_Date());
-		existingOrder.setOrder_Status(existingOrder.getOrder_Status());
-		existingOrder.setReturn_City(existingOrder.getReturn_City());
-		existingOrder.setStart_Date(existingOrder.getStart_Date());
-		existingOrder.setType_Insurance(existingOrder.getType_Insurance());
-		existingOrder.setUser(existingOrder.getUser());
+		existingOrder.setBooking_City(order.getBooking_City());
+		existingOrder.setCar(order.getCar());
+		existingOrder.setClient_Age(order.getClient_Age());
+		existingOrder.setContry(order.getContry());
+		existingOrder.setEnd_Date(order.getEnd_Date());
+		existingOrder.setOrder_Status(order.getOrder_Status());
+		existingOrder.setReturn_City(order.getReturn_City());
+		existingOrder.setStart_Date(order.getStart_Date());
+		existingOrder.setType_Insurance(order.getType_Insurance());
+		existingOrder.setUser(order.getUser());
 		
 		orderRepo.save(existingOrder);
 		

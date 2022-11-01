@@ -36,23 +36,23 @@ public class ServiceClientImpl implements IService<Client> {
 		Client existingClient = clientRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("clientRepository", "Id", id));
 		
-		existingClient.setAdress(existingClient.getAdress());
-		existingClient.setAge(existingClient.getAge());
-		existingClient.setCantry(existingClient.getCantry());
-		existingClient.setCIN(existingClient.getCIN());
-		existingClient.setCity(existingClient.getCity());
-		existingClient.setDate_Creation(existingClient.getDate_Creation());
-		existingClient.setDate_Licence(existingClient.getDate_Licence());
-		existingClient.setEmail(existingClient.getEmail());
-		existingClient.setFirst_Name(existingClient.getFirst_Name());
-		existingClient.setGender(existingClient.getGender());
-		existingClient.setLast_CheckIn(existingClient.getLast_CheckIn());
-		existingClient.setLast_Name(existingClient.getLast_Name());
-		existingClient.setLicence(existingClient.getLicence());
-		existingClient.setPassWord(existingClient.getPassWord());
-		existingClient.setTel(existingClient.getTel());
-		existingClient.setUserName(existingClient.getUserName());
-		existingClient.setVol_Numbre(existingClient.getVol_Numbre());
+		existingClient.setAdress(client.getAdress());
+		existingClient.setAge(client.getAge());
+		existingClient.setCantry(client.getCantry());
+		existingClient.setCIN(client.getCIN());
+		existingClient.setCity(client.getCity());
+		existingClient.setDate_Creation(client.getDate_Creation());
+		existingClient.setDate_Licence(client.getDate_Licence());
+		existingClient.setEmail(client.getEmail());
+		existingClient.setFirst_Name(client.getFirst_Name());
+		existingClient.setGender(client.getGender());
+		existingClient.setLast_CheckIn(client.getLast_CheckIn());
+		existingClient.setLast_Name(client.getLast_Name());
+		existingClient.setLicence(client.getLicence());
+		existingClient.setPassWord(client.getPassWord());
+		existingClient.setTel(client.getTel());
+		existingClient.setUserName(client.getUserName());
+		existingClient.setVol_Numbre(client.getVol_Numbre());
 		
 		clientRepo.save(existingClient);
 

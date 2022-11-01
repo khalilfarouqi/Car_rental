@@ -154,8 +154,7 @@ public class AdminController {
 	@PutMapping("/UpdateClient/{id}")
 	public ResponseEntity<Client> updateClient(@PathVariable("id") Long ID,@RequestBody Client client){
 		try {
-			serviceClientImpl.update(client, ID);
-			return new ResponseEntity<>(serviceClientImpl.getById(ID), HttpStatus.OK);
+			return new ResponseEntity<Client>(serviceClientImpl.update(client, ID), HttpStatus.OK);
 		}catch (Exception e){
 			System.out.println("--------> " + e.getMessage());
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

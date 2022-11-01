@@ -46,14 +46,14 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
             R 🕑
             U 🕑
             D 🕑
-* Client  : C 🕑
-            R 🕑
-            U 🕑
-            D 🕑
+* Client  : C ✔️
+            R ✔️
+            U ❌
+            D ✔️
 * Photo   : C ✔️
             R ✔️
             U ❌
             D ✔️
 ---
 # Mode
-😝
+🤗

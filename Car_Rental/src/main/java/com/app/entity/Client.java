@@ -25,7 +25,8 @@ public class Client extends User {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Gender")
 	private Gender gender;
-	
+
+	//Null
 	@Column(name = "Age")
 	private int Age;
 	

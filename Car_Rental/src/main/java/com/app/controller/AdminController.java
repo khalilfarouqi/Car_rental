@@ -175,7 +175,12 @@ public class AdminController {
 	
 	@GetMapping("/ListOrder")
 	public List<Order> getAllOrder(){
-		return serviceOrderImpl.getAll();
+		try {
+			return serviceOrderImpl.getAll();
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
+		}
 	}
 	
 //	@PostMapping("/SaveOrder")
@@ -185,46 +190,86 @@ public class AdminController {
 	
 	@GetMapping("/GetOrder/{id}")
 	public ResponseEntity<Order> getOrderById(@PathVariable("id") Long ID){
-		return new ResponseEntity<Order>(serviceOrderImpl.getById(ID), HttpStatus.OK);
+		try {
+			return new ResponseEntity<Order>(serviceOrderImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@PutMapping("/UpdateOrder/{id}")
 	public ResponseEntity<Order> updateOrder(@PathVariable("id") Long ID,@RequestBody Order order){
-		return new ResponseEntity<Order>(serviceOrderImpl.update(order, ID), HttpStatus.OK);
+		try {
+			return new ResponseEntity<Order>(serviceOrderImpl.update(order, ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@DeleteMapping("/DeleteOrder/{id}")
 	public ResponseEntity<String> deleteOrderById(@PathVariable("id") Long ID){
-		serviceOrderImpl.deleteById(ID);
-		return new ResponseEntity<String>("Order deleted successfully!.", HttpStatus.OK);
+		try {
+			serviceOrderImpl.deleteById(ID);
+			return new ResponseEntity<String>("Order deleted successfully!.", HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 //	-------------------------------------------Photo-------------------------------------------
 	
 	@GetMapping("/ListPhoto")
 	public List<Photo> getAllPhoto(){
-		return servicePhotoImpl.getAll();
+		try {
+			return servicePhotoImpl.getAll();
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
+		}
 	}
 	
 	@PostMapping("/SavePhoto")
 	public ResponseEntity<Photo> savePhoto(@RequestBody Photo photo){
-		return new ResponseEntity<Photo>(servicePhotoImpl.save(photo), HttpStatus.CREATED);
+		try {
+			return new ResponseEntity<Photo>(servicePhotoImpl.save(photo), HttpStatus.CREATED);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping("/GetPhoto/{id}")
 	public ResponseEntity<Photo> getPhotoById(@PathVariable("id") Long ID){
-		return new ResponseEntity<Photo>(servicePhotoImpl.getById(ID), HttpStatus.OK);
+		try {
+			return new ResponseEntity<Photo>(servicePhotoImpl.getById(ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@PutMapping("/UpdatePhoto/{id}")
 	public ResponseEntity<Photo> updatePhoto(@PathVariable("id") Long ID,@RequestBody Photo photo){
-		return new ResponseEntity<Photo>(servicePhotoImpl.update(photo, ID), HttpStatus.OK);
+		try {
+			return new ResponseEntity<Photo>(servicePhotoImpl.update(photo, ID), HttpStatus.OK);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@DeleteMapping("/DeletePhoto/{id}")
 	public ResponseEntity<String> deletePhotoById(@PathVariable("id") Long ID){
-		servicePhotoImpl.deleteById(ID);
-		return new ResponseEntity<String>("Photo deleted successfully!.", HttpStatus.OK);
+		try {
+			servicePhotoImpl.deleteById(ID);
+			return new ResponseEntity<String>("Photo deleted successfully!.", HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	

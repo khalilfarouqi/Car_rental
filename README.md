@@ -34,5 +34,26 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
 * Front-End   : 00 %
 * Testing     : 30 %
 ---
+* User    : C ✔️
+            R ✔️
+            U ❌
+            D ✔️
+* Car     : C ✔️
+            R ✔️
+            U ❌
+            D ✔️
+* Order   : C 🕑
+            R 🕑
+            U 🕑
+            D 🕑
+* Client  : C 🕑
+            R 🕑
+            U 🕑
+            D 🕑
+* Photo   : C ✔️
+            R ✔️
+            U ❌
+            D ✔️
+---
 # Mode
 😝

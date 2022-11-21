@@ -28,16 +28,16 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
 ![image](https://user-images.githubusercontent.com/85711688/190919624-3852a740-3d59-4f17-ae28-16fe80b30e7f.png)
 ---
 # Etat d'avancement
-* Conception  : 90 %
+* Conception  : 95 %
 * DataBase    : 95 %
 * Back-End    : 90 %
 * Front-End   : 00 %
-* Testing     : 89 %
+* Testing     : 95 %
 ---
 # Admin Controller
 * User    : C ✔️
             R ✔️
-            U ❌
+            U ✔️
             D ✔️
 * Car     : C ✔️
             R ✔️
@@ -48,7 +48,7 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
             D ✔️
 * Client  : C ✔️
             R ✔️
-            U ❌
+            U ✔️
             D ✔️
 * Photo   : C ✔️
             R ✔️
@@ -62,8 +62,8 @@ Spring Boot application avec Angular on utilisant PostgreSQL database.
             D ✔️
 * Client  : C ✔️
             R ✔️
-            U ❌
+            U ✔️
             D ✔️
 ---
 # Mode
-🤗
+😎

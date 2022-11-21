@@ -36,23 +36,23 @@ public class ServiceClientImpl implements IService<Client> {
 		Client existingClient = clientRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("clientRepository", "Id", id));
 		
-		existingClient.setAdress(client.getAdress());
-		existingClient.setAge(client.getAge());
-		existingClient.setCantry(client.getCantry());
-		existingClient.setCIN(client.getCIN());
-		existingClient.setCity(client.getCity());
-		existingClient.setDate_Creation(client.getDate_Creation());
-		existingClient.setDate_Licence(client.getDate_Licence());
-		existingClient.setEmail(client.getEmail());
-		existingClient.setFirst_Name(client.getFirst_Name());
-		existingClient.setGender(client.getGender());
-		existingClient.setLast_CheckIn(client.getLast_CheckIn());
-		existingClient.setLast_Name(client.getLast_Name());
-		existingClient.setLicence(client.getLicence());
-		existingClient.setPassWord(client.getPassWord());
-		existingClient.setTel(client.getTel());
-		existingClient.setUserName(client.getUserName());
-		existingClient.setVol_Numbre(client.getVol_Numbre());
+		if (client.getAdress() != null) existingClient.setAdress(client.getAdress());
+		if (client.getAge() != 0) existingClient.setAge(client.getAge());
+		if (client.getCantry() != null) existingClient.setCantry(client.getCantry());
+		if (client.getCIN() != null) existingClient.setCIN(client.getCIN());
+		if (client.getCity() != null) existingClient.setCity(client.getCity());
+		if (client.getDate_Creation() != null) existingClient.setDate_Creation(client.getDate_Creation());
+		if (client.getDate_Licence() != null) existingClient.setDate_Licence(client.getDate_Licence());
+		if (client.getEmail() != null) existingClient.setEmail(client.getEmail());
+		if (client.getFirst_Name() != null) existingClient.setFirst_Name(client.getFirst_Name());
+		if (client.getGender() != null) existingClient.setGender(client.getGender());
+		if (client.getLast_CheckIn() != null) existingClient.setLast_CheckIn(client.getLast_CheckIn());
+		if (client.getLast_Name() != null) existingClient.setLast_Name(client.getLast_Name());
+		if (client.getLicence() != null) existingClient.setLicence(client.getLicence());
+		if (client.getPassWord() != null) existingClient.setPassWord(client.getPassWord());
+		if (client.getTel() != null) existingClient.setTel(client.getTel());
+		if (client.getUserName() != null) existingClient.setUserName(client.getUserName());
+		if (client.getVol_Numbre() != 0) existingClient.setVol_Numbre(client.getVol_Numbre());
 		
 		clientRepo.save(existingClient);
 

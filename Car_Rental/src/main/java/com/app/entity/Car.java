@@ -4,6 +4,9 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.app.entity.enem.Fuel;
+import com.app.entity.enem.GearBox;
+import com.app.entity.enem.Style;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -25,7 +28,7 @@ public class Car {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Brande")
-	private Brande brande;
+	private Admin.Brande brande;
 	
 	@Column(name = "Matricule")
 	private String Matricule;

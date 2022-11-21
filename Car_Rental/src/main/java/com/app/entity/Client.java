@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import com.app.entity.enem.Gender;
+import com.app.entity.enem.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.*;
@@ -35,9 +35,10 @@ public class Client extends User {
 	
 	@Column(name = "Tel")
 	private String Tel;
-	
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "City")
-	private String City;
+	private City City;
 	
 	@Column(name = "Cantry")
 	private String Cantry;

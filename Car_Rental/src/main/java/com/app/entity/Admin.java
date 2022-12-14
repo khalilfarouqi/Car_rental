@@ -15,4 +15,29 @@ public class Admin extends User {
 	@Column(name = "FullName")
 	private String Full_Name;
 
+    public enum Brande {
+
+        Honda,
+        AlfaRomeo,
+        Audi,
+        BMW,
+        Volkswagen,
+        Chevrolet,
+        Fiat,
+        Ford,
+        Hyundai,
+        Renault,
+        Nissan,
+        Mitsubishi,
+        Jeep,
+        Kia,
+        LandRover,
+        Dacia,
+        MercedesBenz,
+        Citroën,
+        Peugeot;
+
+
+
+    }
 }

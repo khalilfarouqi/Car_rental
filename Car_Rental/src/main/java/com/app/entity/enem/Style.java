@@ -1,4 +1,4 @@
-package com.app.entity;
+package com.app.entity.enem;
 
 public enum Style {
 	

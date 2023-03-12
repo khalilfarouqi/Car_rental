@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.app.entity.enem.Brande;
 import com.app.entity.enem.Fuel;
 import com.app.entity.enem.GearBox;
 import com.app.entity.enem.Style;
@@ -28,7 +29,7 @@ public class Car {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Brande")
-	private Admin.Brande brande;
+	private Brande brande;
 	
 	@Column(name = "Matricule")
 	private String Matricule;

@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.app.entity.enem.Roles;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -32,10 +33,10 @@ public class User {
 	
 	@Column(name = "PassWord")
 	private String PassWord;
-	
-	@ManyToOne
-    @JoinColumn(name="role_id", nullable=false)
-    private Role role;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "Role")
+    private Roles roles;
 	
 	@OneToMany(mappedBy = "user")
     private List<Order> orders;

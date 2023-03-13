@@ -4,12 +4,13 @@ import com.app.entity.enem.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ClientDto extends UserDto {
+public class ClientDto extends UserDto implements Serializable {
     private String First_Name;
     private String Last_Name;
     private Gender gender;

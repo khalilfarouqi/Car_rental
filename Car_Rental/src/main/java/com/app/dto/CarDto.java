@@ -4,12 +4,13 @@ import com.app.entity.enem.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CarDto {
+public class CarDto implements Serializable {
     private Long ID;
     private String Name;
     private Brande brande;

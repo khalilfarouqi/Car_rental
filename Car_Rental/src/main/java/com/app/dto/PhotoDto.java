@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PhotoDto {
+public class PhotoDto implements Serializable {
     private Long ID;
     private String Photo_1;
     private String Photo_2;

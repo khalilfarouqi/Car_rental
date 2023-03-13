@@ -4,13 +4,14 @@ import com.app.entity.enem.Roles;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto {
+public class UserDto implements Serializable {
     private Long ID;
     private Date Last_CheckIn;
     private String UserName;

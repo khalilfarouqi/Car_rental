@@ -4,12 +4,13 @@ import com.app.entity.enem.City;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class OrderDto {
+public class OrderDto implements Serializable {
     private Long ID;
     private String Contry;
     private City Booking_City;

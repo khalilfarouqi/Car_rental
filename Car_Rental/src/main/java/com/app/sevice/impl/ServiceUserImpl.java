@@ -39,7 +39,7 @@ public class ServiceUserImpl implements IService<User> {
 		if (user.getLast_CheckIn() != null) existingUser.setLast_CheckIn(user.getLast_CheckIn());
 		if (user.getOrders() != null) existingUser.setOrders(user.getOrders());
 		if (user.getPassWord() != null) existingUser.setPassWord(user.getPassWord());
-		if (user.getRole() != null) existingUser.setRole(user.getRole());
+		if (user.getRoles() != null) existingUser.setRoles(user.getRoles());
 		if (user.getUserName() != null) existingUser.setUserName(user.getUserName());
 		
 		userRepo.save(existingUser);

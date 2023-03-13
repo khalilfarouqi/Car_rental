@@ -40,8 +40,8 @@ public class Client extends User {
 	@Column(name = "City")
 	private City City;
 	
-	@Column(name = "Cantry")
-	private String Cantry;
+	@Column(name = "Country")
+	private String Country;
 	
 	@Column(name = "CIN")
 	private String CIN;

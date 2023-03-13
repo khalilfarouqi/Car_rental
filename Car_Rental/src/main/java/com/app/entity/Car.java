@@ -70,8 +70,8 @@ public class Car {
 	@Column(name = "Style")
 	private Style style;
 	
-	@Column(name = "SizeCofer")
-	private int Size_Cofer;
+	@Column(name = "bootSize")
+	private int bootSize;
 	
 	@Column(name = "Price")
 	private Double Price;

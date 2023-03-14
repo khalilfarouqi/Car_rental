@@ -1,7 +1,7 @@
 package com.app.sevice.impl;
 
-import com.app.dto.NotificationGroupeDto;
-import com.app.entity.NotificationGroupe;
+import com.app.dto.AdminDto;
+import com.app.entity.Admin;
 import com.app.sevice.BaseServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class ServiceNotificationGroupeImpl extends BaseServiceImpl<NotificationGroupe, NotificationGroupeDto> {
+public class ServiceAdminImpl extends BaseServiceImpl<Admin, AdminDto> {
 
 }

@@ -1,39 +1,17 @@
 package com.app.sevice.impl;
 
+import com.app.dto.NotificationDto;
 import com.app.entity.Notification;
-import com.app.repository.NotificationRepo;
-import com.app.sevice.IService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.app.sevice.BaseServiceImpl;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+@Slf4j
+@Transactional(readOnly = true)
+@RequiredArgsConstructor
+@Service
+public class ServiceNotificationImpl extends BaseServiceImpl<Notification, NotificationDto> {
 
-public class ServiceNotificationImpl implements IService<Notification> {
-
-    private NotificationRepo notificationRepo;
-
-    @Override
-    public List<Notification> getAll() {
-        return notificationRepo.findAll();
-    }
-
-    @Override
-    public Notification save(Notification notification) {
-        return notificationRepo.save(notification);
-    }
-
-    @Override
-    public Notification getById(Long id) {
-        return notificationRepo.findById(id).get();
-    }
-
-    @Override
-    public Notification update(Notification notification, Long id) {
-        notification.setID(id);
-        return notificationRepo.save(notification);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        this.notificationRepo.deleteById(id);
-    }
 }

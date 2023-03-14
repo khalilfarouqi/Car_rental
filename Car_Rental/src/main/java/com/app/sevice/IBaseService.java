@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import java.io.Serializable;
 
-public interface IBaseService<E, D extends Serializable> {
+public interface IBaseService<E, D extends Serializable> extends IRsqlService<E, D> {
     D save(D dto);
 
     D update(D dto);

@@ -9,8 +9,8 @@ import com.app.entity.enums.*;
 import lombok.*;
 
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name="Cars")
 public class Car {

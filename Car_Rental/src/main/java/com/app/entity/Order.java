@@ -10,8 +10,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.*;
 
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name="Orders")
 public class Order {

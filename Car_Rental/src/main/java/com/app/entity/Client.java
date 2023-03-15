@@ -10,8 +10,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.*;
 
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name="Clients")
 public class Client extends User {

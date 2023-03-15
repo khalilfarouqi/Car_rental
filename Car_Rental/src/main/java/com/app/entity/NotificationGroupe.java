@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name="NotificationGroupe")
 public class NotificationGroupe {

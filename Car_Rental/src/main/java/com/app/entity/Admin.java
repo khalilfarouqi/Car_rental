@@ -5,8 +5,8 @@ import javax.persistence.*;
 import lombok.*;
 
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name="Admins")
 public class Admin extends User {

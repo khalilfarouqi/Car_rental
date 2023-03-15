@@ -5,6 +5,7 @@ import com.app.mapper.GenericModelMapper;
 import com.app.repository.BaseJpaRepository;
 import com.app.sevice.IBaseService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -16,8 +17,10 @@ import java.util.Optional;
 @Slf4j
 public abstract class BaseServiceImpl <E, D extends Serializable> implements IBaseService<E, D> {
 
+    @Autowired
     BaseJpaRepository<E> baseJpaRepository;
 
+    @Autowired
     GenericModelMapper<E, D> mapper;
 
     @Override

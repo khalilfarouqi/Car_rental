@@ -3,7 +3,6 @@ package com.app.sevice;
 import com.app.exception.ResourceNotFoundException;
 import com.app.mapper.GenericModelMapper;
 import com.app.repository.BaseJpaRepository;
-import com.app.sevice.IBaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

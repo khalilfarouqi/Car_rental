@@ -1,5 +1,6 @@
 package com.app;
 
+import com.app.dto.CarDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -38,9 +39,9 @@ class CarRentalApplicationTests {
 			System.out.println(e.getMessage());
 		}
 
-		adminController.save(client);
+		adminController.save(client);*/
 		
-		Car car = new Car();
+		CarDto car = new CarDto();
 		
 		car.setName("Login");
 		
@@ -52,7 +53,7 @@ class CarRentalApplicationTests {
 			System.out.println(e.getMessage());
 		}
 		
-		servCar.save(car);*/
+		servCar.save(car);
 		
 	}
 

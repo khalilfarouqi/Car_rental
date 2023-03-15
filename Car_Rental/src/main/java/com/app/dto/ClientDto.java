@@ -7,8 +7,9 @@ import lombok.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ClientDto extends UserDto implements Serializable {
     private String firstName;

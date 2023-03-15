@@ -7,8 +7,9 @@ import lombok.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CarDto implements Serializable {
     private Long id;

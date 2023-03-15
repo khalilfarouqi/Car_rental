@@ -5,9 +5,10 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AdminDto extends UserDto implements Serializable {
-    private String Full_Name;
+    private String fullName;
 }

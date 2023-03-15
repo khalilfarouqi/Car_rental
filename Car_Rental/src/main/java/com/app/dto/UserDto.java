@@ -8,8 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto implements Serializable {
     private Long id;

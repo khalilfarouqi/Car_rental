@@ -8,6 +8,7 @@ import com.app.entity.enums.*;
 
 import lombok.*;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity

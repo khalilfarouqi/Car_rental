@@ -1,6 +1,6 @@
 package com.app.dto;
 
-import com.app.entity.enem.*;
+import com.app.entity.enums.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
@@ -11,28 +11,28 @@ import java.util.List;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CarDto implements Serializable {
-    private Long ID;
-    private String Name;
+    private Long id;
+    private String name;
     private Brande brande;
-    private String Matricule;
-    private Double Mileage;
-    private int Model;
-    private int HorsPower;
-    private Double Consumption;
+    private String matricule;
+    private Double mileage;
+    private int model;
+    private int horsPower;
+    private Double consumption;
     private Fuel fuel;
-    private Boolean Bluetooth;
-    private Boolean AirBag;
+    private Boolean bluetooth;
+    private Boolean airBag;
     private GearBox gearBox;
-    private int Seat;
-    private int Door;
+    private int seat;
+    private int door;
     private Style style;
     private int bootSize;
-    private Double Price;
-    private Double Rate;
-    private Boolean CDM;
-    private Boolean Protection_Vol;
-    private Boolean Respo_Civile;
-    private Boolean Bris_Glace_Pneus;
+    private Double price;
+    private Double rate;
+    private Boolean cdm;
+    private Boolean protectionVol;
+    private Boolean respoCivile;
+    private Boolean brisGlacePneus;
     private PhotoDto photoDto;
     private List<OrderDto> orderDtoList;
 }

@@ -1,6 +1,6 @@
 package com.app.dto;
 
-import com.app.entity.enem.City;
+import com.app.entity.enums.City;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
@@ -11,15 +11,15 @@ import java.util.Date;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDto implements Serializable {
-    private Long ID;
-    private String Contry;
-    private City Booking_City;
-    private City Return_City;
-    private Date Start_Date;
-    private Date End_Date;
-    private int Client_Age;
-    private String Type_Insurance;
-    private String Order_Status;
+    private Long id;
+    private String country;
+    private City bookingCity;
+    private City returnCity;
+    private Date startDate;
+    private Date endDate;
+    private int clientAge;
+    private String typeInsurance;
+    private String orderStatus;
     private CarDto carDto;
     private UserDto userDto;
 

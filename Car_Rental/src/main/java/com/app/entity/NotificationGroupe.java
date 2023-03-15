@@ -1,6 +1,6 @@
 package com.app.entity;
 
-import com.app.entity.enem.NotificationType;
+import com.app.entity.enums.NotificationType;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,7 @@ import java.util.Date;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class NotificationGroupe {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long id;
 
     private String object;
 

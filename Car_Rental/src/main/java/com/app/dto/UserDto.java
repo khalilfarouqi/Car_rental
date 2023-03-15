@@ -1,6 +1,6 @@
 package com.app.dto;
 
-import com.app.entity.enem.Roles;
+import com.app.entity.enums.Roles;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto implements Serializable {
-    private Long ID;
-    private Date Last_CheckIn;
-    private String UserName;
-    private String PassWord;
+    private Long id;
+    private Date lastCheckIn;
+    private String userName;
+    private String passWord;
     private Roles roles;
     private List<OrderDto> orderDtoList;
 }

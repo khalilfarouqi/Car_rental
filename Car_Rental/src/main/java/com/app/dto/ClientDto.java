@@ -1,6 +1,6 @@
 package com.app.dto;
 
-import com.app.entity.enem.*;
+import com.app.entity.enums.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
@@ -11,18 +11,18 @@ import java.util.Date;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ClientDto extends UserDto implements Serializable {
-    private String First_Name;
-    private String Last_Name;
+    private String firstName;
+    private String lastName;
     private Gender gender;
-    private int Age;
-    private String Adress;
-    private String Tel;
-    private City City;
-    private String Country;
-    private String CIN;
-    private String Licence;
-    private Date Date_Licence;
-    private Date Date_Creation;
-    private String Email;
-    private int Vol_Numbre;
+    private int age;
+    private String adress;
+    private String tel;
+    private City city;
+    private String country;
+    private String cin;
+    private String licence;
+    private Date dateLicence;
+    private Date dateCreation;
+    private String email;
+    private int volNumbre;
 }

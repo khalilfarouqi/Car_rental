@@ -2,7 +2,6 @@ package com.app.entity;
 
 import javax.persistence.*;
 
-import com.app.entity.enem.Roles;
 import lombok.*;
 
 @Entity
@@ -14,5 +13,5 @@ import lombok.*;
 public class Admin extends User {
 	
 	@Column(name = "FullName")
-	private String Full_Name;
+	private String fullName;
 }

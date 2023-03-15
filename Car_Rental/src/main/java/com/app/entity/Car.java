@@ -4,10 +4,10 @@ import java.util.*;
 
 import javax.persistence.*;
 
-import com.app.entity.enem.Brande;
-import com.app.entity.enem.Fuel;
-import com.app.entity.enem.GearBox;
-import com.app.entity.enem.Style;
+import com.app.entity.enums.Brande;
+import com.app.entity.enums.Fuel;
+import com.app.entity.enums.GearBox;
+import com.app.entity.enums.Style;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -22,49 +22,49 @@ import lombok.*;
 public class Car {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ID;
+	private Long id;
 	
 	@Column(name = "Name")
-	private String Name;
+	private String name;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Brande")
 	private Brande brande;
 	
 	@Column(name = "Matricule")
-	private String Matricule;
+	private String matricule;
 	
 	@Column(name = "Mileage")
-	private Double Mileage;
+	private Double mileage;
 	
 	@Column(name = "Model")
-	private int Model;
+	private int model;
 	
 	@Column(name = "HorsPower")
-	private int HorsPower;
+	private int horsPower;
 	
 	@Column(name = "Consumption")
-	private Double Consumption;
+	private Double consumption;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "fuel")
 	private Fuel fuel;
 	
 	@Column(name = "Bluetooth")
-	private Boolean Bluetooth;
+	private Boolean bluetooth;
 	
 	@Column(name = "AirBag")
-	private Boolean AirBag;
+	private Boolean airBag;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "GearBox")
 	private GearBox gearBox;
 	
 	@Column(name = "Seat")
-	private int Seat;
+	private int seat;
 	
 	@Column(name = "Door")
-	private int Door;
+	private int door;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Style")
@@ -74,24 +74,24 @@ public class Car {
 	private int bootSize;
 	
 	@Column(name = "Price")
-	private Double Price;
+	private Double price;
 	
 	@Column(name = "Rate")
-	private Double Rate;
+	private Double rate;
 	
 	//-------------------Assurence-------------------
 	
 	@Column(name = "CDM")
-	private Boolean CDM;
+	private Boolean cdm;
 	
 	@Column(name = "ProtectionVol")
-	private Boolean Protection_Vol;
+	private Boolean protectionVol;
 	
 	@Column(name = "RespoCivile")
-	private Boolean Respo_Civile;
+	private Boolean respoCivile;
 
 	@Column(name = "BrisGlacePneus")
-	private Boolean Bris_Glace_Pneus;
+	private Boolean brisGlacePneus;
 	
 	//-----------------------------------------------
 	

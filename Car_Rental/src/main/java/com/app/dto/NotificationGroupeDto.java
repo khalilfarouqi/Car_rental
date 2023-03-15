@@ -1,6 +1,6 @@
 package com.app.dto;
 
-import com.app.entity.enem.NotificationType;
+import com.app.entity.enums.NotificationType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NotificationGroupeDto implements Serializable {
-    private Long ID;
+    private Long id;
     private String object;
     private String body;
     private NotificationType notificationType;

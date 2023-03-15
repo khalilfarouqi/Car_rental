@@ -38,7 +38,7 @@ class CarRentalApplicationTests {
 			System.out.println(e.getMessage());
 		}
 
-		adminController.save(client);*/
+		adminController.save(client);
 		
 		Car car = new Car();
 		
@@ -52,7 +52,7 @@ class CarRentalApplicationTests {
 			System.out.println(e.getMessage());
 		}
 		
-		servCar.save(car);
+		servCar.save(car);*/
 		
 	}
 

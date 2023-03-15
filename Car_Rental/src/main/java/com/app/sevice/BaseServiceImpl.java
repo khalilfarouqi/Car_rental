@@ -1,7 +1,6 @@
 package com.app.sevice;
 
 import com.app.exception.ResourceNotFoundException;
-import com.app.mapper.GenericModelMapper;
 import com.app.repository.BaseJpaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

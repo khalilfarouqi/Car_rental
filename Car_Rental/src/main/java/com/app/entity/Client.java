@@ -9,12 +9,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name="Clients")
-@EqualsAndHashCode(callSuper = true)
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Client extends User {
 	
 	@Column(name = "FirstName")

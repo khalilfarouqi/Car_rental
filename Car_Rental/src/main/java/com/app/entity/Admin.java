@@ -4,12 +4,10 @@ import javax.persistence.*;
 
 import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name="Admins")
-@EqualsAndHashCode(callSuper = true)
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Admin extends User {
 	
 	@Column(name = "FullName")

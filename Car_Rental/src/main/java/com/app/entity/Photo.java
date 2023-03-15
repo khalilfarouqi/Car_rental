@@ -2,33 +2,28 @@ package com.app.entity;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name="Photos")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class Photo {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ID;
+	private Long id;
 	
 	@Column(name = "Photo1")
-	private String Photo_1;
+	private String photo1;
 	
 	@Column(name = "Photo2")
-	private String Photo_2;
+	private String photo2;
 	
 	@Column(name = "Photo3")
-	private String Photo_3;
+	private String photo3;
 	
 	@Column(name = "Photo4")
-	private String Photo_4;
+	private String photo4;
 	
 	@OneToOne(mappedBy = "photo")
     private Car car;

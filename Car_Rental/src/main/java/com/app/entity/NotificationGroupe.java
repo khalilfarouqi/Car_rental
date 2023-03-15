@@ -1,21 +1,15 @@
 package com.app.entity;
 
 import com.app.entity.enums.NotificationType;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Getter
+@Setter
 @Entity
 @Table(name="NotificationGroupe")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class NotificationGroupe {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

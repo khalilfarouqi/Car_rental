@@ -4,21 +4,14 @@ import java.util.*;
 
 import javax.persistence.*;
 
-import com.app.entity.enums.Brande;
-import com.app.entity.enums.Fuel;
-import com.app.entity.enums.GearBox;
-import com.app.entity.enums.Style;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.app.entity.enums.*;
 
 import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name="Cars")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class Car {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)

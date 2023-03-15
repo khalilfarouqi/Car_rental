@@ -7,18 +7,13 @@ import javax.persistence.*;
 import com.app.entity.enums.Roles;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name="Users")
 @Inheritance(strategy = InheritanceType.JOINED)
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class User {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)

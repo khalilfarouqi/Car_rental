@@ -7,17 +7,12 @@ import javax.persistence.*;
 import com.app.entity.enums.City;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name="Orders")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class Order {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)

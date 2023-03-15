@@ -1,4 +1,4 @@
-package com.app.entity.enem;
+package com.app.entity.enums;
 
 public enum NotificationType {
     SMS,MAIL,SMS_MAIL

@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @CrossOrigin
 @Tag(name = "Photo", description = "REST API for Photo information")
 @RequestMapping("/v1/photo")
-public interface PhotoApi extends BaseApi<Photo, PhotoDto> {
+public interface PhotoApi {
 
 }

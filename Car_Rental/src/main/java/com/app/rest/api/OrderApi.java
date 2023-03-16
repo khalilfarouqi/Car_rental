@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @CrossOrigin
 @Tag(name = "Order", description = "REST API for Order information")
 @RequestMapping("/v1/order")
-public interface OrderApi extends BaseApi<Order, OrderDto> {
+public interface OrderApi {
 
 }

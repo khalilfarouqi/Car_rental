@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @CrossOrigin
 @Tag(name = "Notification", description = "REST API for Notification information")
 @RequestMapping("/v1/notification")
-public interface NotificationApi extends BaseApi<Notification, NotificationDto> {
+public interface NotificationApi {
 
 }

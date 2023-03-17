@@ -5,41 +5,41 @@ import com.app.repository.PhotoRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Photo;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
 public class ServicePhotoImpl {
-    @Autowired
-    private PhotoRepo photoRepository;
-    @Autowired
-    private ModelMapper modelMapper;
+    private final PhotoRepo photoRepository;
+    private final ModelMapper modelMapper;
 
     public List<PhotoDto> getAllPhoto(){
-        return photoRepository.findAll()
-                .stream()
-                .map(this::convertEntityToDto)
-                .collect(Collectors.toList());
-    }
-    private PhotoDto convertEntityToDto(Photo photo){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        return modelMapper.map(photo, PhotoDto.class);
+        List<PhotoDto> photoDtoList = new ArrayList<>();
+        photoRepository.findAll().forEach(element -> photoDtoList.add(modelMapper.map(element, PhotoDto.class)));
+        return photoDtoList;
     }
 
-    private Photo convertDtoToEntity(PhotoDto photoDto){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        return modelMapper.map(photoDto, Photo.class);
+    public PhotoDto getPhotoById(Long id){
+        return modelMapper.map(photoRepository.findById(id), PhotoDto.class);
+    }
+
+    public void savePhoto(PhotoDto photoDto){
+        photoRepository.save(modelMapper.map(photoDto, Photo.class));
+    }
+
+    public void updatePhoto(PhotoDto photoDto){
+        photoRepository.save(modelMapper.map(photoDto, Photo.class));
+    }
+
+    public void deletePhoto(Long id){
+        photoRepository.deleteById(id);
     }
 }

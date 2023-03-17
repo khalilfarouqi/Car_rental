@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 public class CarController implements CarApi {
 
-    private ServiceCarImpl caeService;
+    private final ServiceCarImpl caeService;
 
     public List<CarDto> getAllCar(){
         return caeService.getAllCar();

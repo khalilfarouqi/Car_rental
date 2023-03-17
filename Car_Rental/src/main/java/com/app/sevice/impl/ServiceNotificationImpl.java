@@ -6,39 +6,39 @@ import com.app.repository.NotificationRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
 public class ServiceNotificationImpl {
-    @Autowired
-    private NotificationRepo notificationRepository;
-    @Autowired
-    private ModelMapper modelMapper;
+    private final NotificationRepo notificationRepository;
+    private final ModelMapper modelMapper;
 
     public List<NotificationDto> getAllNotification(){
-        return notificationRepository.findAll()
-                .stream()
-                .map(this::convertEntityToDto)
-                .collect(Collectors.toList());
-    }
-    private NotificationDto convertEntityToDto(Notification notification){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        return modelMapper.map(notification, NotificationDto.class);
+        List<NotificationDto> notificationDtoList = new ArrayList<>();
+        notificationRepository.findAll().forEach(element -> notificationDtoList.add(modelMapper.map(element, NotificationDto.class)));
+        return notificationDtoList;
     }
 
-    private Notification convertDtoToEntity(NotificationDto notificationDto){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        return modelMapper.map(notificationDto, Notification.class);
+    public NotificationDto getNotificationById(Long id){
+        return modelMapper.map(notificationRepository.findById(id), NotificationDto.class);
+    }
+
+    public void saveNotification(NotificationDto notificationDto){
+        notificationRepository.save(modelMapper.map(notificationDto, Notification.class));
+    }
+
+    public void updateNotification(NotificationDto notificationDto){
+        notificationRepository.save(modelMapper.map(notificationDto, Notification.class));
+    }
+
+    public void deleteNotification(Long id){
+        notificationRepository.deleteById(id);
     }
 }

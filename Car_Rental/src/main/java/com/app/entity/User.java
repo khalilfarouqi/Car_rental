@@ -4,7 +4,6 @@ import java.util.*;
 
 import javax.persistence.*;
 
-import com.app.entity.enums.Roles;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.*;
@@ -14,7 +13,6 @@ import lombok.*;
 @Data
 @Entity
 @Table(name="Users")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,10 +27,6 @@ public class User {
 	
 	@Column(name = "PassWord")
 	private String passWord;
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "Role")
-    private Roles roles;
 	
 	@OneToMany(mappedBy = "user")
     private List<Order> orders;

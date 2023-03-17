@@ -5,41 +5,42 @@ import com.app.repository.CarRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Car;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
 public class ServiceCarImpl {
-    @Autowired
-    private CarRepo carRepository;
-    @Autowired
-    private ModelMapper modelMapper;
+    private final CarRepo carRepository;
+    private final ModelMapper modelMapper;
 
     public List<CarDto> getAllCar(){
-        return carRepository.findAll()
-                .stream()
-                .map(this::convertEntityToDto)
-                .collect(Collectors.toList());
-    }
-    private CarDto convertEntityToDto(Car car){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        return modelMapper.map(car, CarDto.class);
+        List<CarDto> carDtoList = new ArrayList<>();
+        carRepository.findAll().forEach(element -> carDtoList.add(modelMapper.map(element, CarDto.class)));
+        return carDtoList;
     }
 
-    private Car convertDtoToEntity(CarDto carDto){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        return modelMapper.map(carDto, Car.class);
+    public CarDto getCarById(Long id){
+        return modelMapper.map(carRepository.findById(id), CarDto.class);
     }
+
+    public void saveCar(CarDto carDto){
+        carRepository.save(modelMapper.map(carDto, Car.class));
+    }
+
+    public void updateCar(CarDto carDto){
+        carRepository.save(modelMapper.map(carDto, Car.class));
+    }
+
+    public void deleteCar(Long id){
+        carRepository.deleteById(id);
+    }
+
 }

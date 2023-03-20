@@ -2,6 +2,7 @@ package com.app.mapper;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 public interface GenericModelMapper<Entity, Dto extends Serializable> {
     Dto toDto(Entity entity);
@@ -13,4 +14,6 @@ public interface GenericModelMapper<Entity, Dto extends Serializable> {
     List<Entity> toEntity(List<Dto> dtos);
 
     Object toDtoOb(Object o);
+
+    Dto toDto(Optional<Entity> byId);
 }

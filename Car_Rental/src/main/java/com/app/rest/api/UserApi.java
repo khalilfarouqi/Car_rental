@@ -3,10 +3,7 @@ package com.app.rest.api;
 import com.app.dto.UserDto;
 import com.app.entity.User;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin
 @Tag(name = "User", description = "REST API for User information")

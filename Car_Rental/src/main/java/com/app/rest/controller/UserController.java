@@ -34,22 +34,7 @@ public class UserController extends BaseController<User, UserDto> implements Use
     }
 
     @Override
-    public UserDto saveUser(UserDto userDto) {
-        return userService.saveUser(userDto);
-    }
-
-    @Override
-    public UserDto updateUser(UserDto userDto) {
-        return userService.updateUser(userDto);
-    }
-
-    @Override
-    public void deleteUser(Long id) {
-        userService.deleteUser(id);
-    }
-
-    @Override
-    public List<UserDto> getAllUser() {
+    public List<UserDto> getAll() {
         return userService.getAllUser();
     }
 }

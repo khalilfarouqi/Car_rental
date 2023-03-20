@@ -1,16 +1,15 @@
 package com.app.sevice.impl;
 
 import com.app.dto.OrderDto;
+import com.app.mapper.OrderMapper;
 import com.app.repository.OrderRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 import com.app.entity.Order;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -18,19 +17,15 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class OrderService extends BaseService<Order, OrderDto> {
-    @Autowired
     private final OrderRepo orderRepository;
-    @Autowired
-    private final ModelMapper modelMapper;
+    private final OrderMapper orderMapper = Mappers.getMapper(OrderMapper.class);
 
     public List<OrderDto> getAllOrder(){
-        List<OrderDto> orderDtoList = new ArrayList<>();
-        orderRepository.findAll().forEach(element -> orderDtoList.add(modelMapper.map(element, OrderDto.class)));
-        return orderDtoList;
+        return orderMapper.toDto(orderRepository.findAll());
     }
 
     public OrderDto getOrderById(Long id){
-        return modelMapper.map(orderRepository.findById(id), OrderDto.class);
+        return orderMapper.toDto(orderRepository.findById(id));
     }
 
 }

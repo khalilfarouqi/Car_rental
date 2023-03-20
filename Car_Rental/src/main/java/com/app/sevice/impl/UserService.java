@@ -1,17 +1,16 @@
 package com.app.sevice.impl;
 
 import com.app.dto.UserDto;
+import com.app.mapper.UserMapper;
 import com.app.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.User;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -19,19 +18,15 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class UserService extends BaseService<User, UserDto> {
-    @Autowired
     private final UserRepo userRepository;
-    @Autowired
-    private final ModelMapper modelMapper;
+    private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
 
     public List<UserDto> getAllUser(){
-        List<UserDto> userDtoList = new ArrayList<>();
-        userRepository.findAll().forEach(element -> userDtoList.add(modelMapper.map(element, UserDto.class)));
-        return userDtoList;
+        return userMapper.toDto(userRepository.findAll());
     }
 
     public UserDto getUserById(Long id){
-        return modelMapper.map(userRepository.findById(id), UserDto.class);
+        return userMapper.toDto(userRepository.findById(id));
     }
 
 }

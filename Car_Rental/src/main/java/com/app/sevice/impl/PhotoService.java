@@ -1,17 +1,16 @@
 package com.app.sevice.impl;
 
 import com.app.dto.PhotoDto;
+import com.app.mapper.PhotoMapper;
 import com.app.repository.PhotoRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Photo;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -19,19 +18,15 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class PhotoService extends BaseService<Photo, PhotoDto> {
-    @Autowired
     private final PhotoRepo photoRepository;
-    @Autowired
-    private final ModelMapper modelMapper;
+    private final PhotoMapper photoMapper = Mappers.getMapper(PhotoMapper.class);
 
     public List<PhotoDto> getAllPhoto(){
-        List<PhotoDto> photoDtoList = new ArrayList<>();
-        photoRepository.findAll().forEach(element -> photoDtoList.add(modelMapper.map(element, PhotoDto.class)));
-        return photoDtoList;
+        return photoMapper.toDto(photoRepository.findAll());
     }
 
     public PhotoDto getPhotoById(Long id){
-        return modelMapper.map(photoRepository.findById(id), PhotoDto.class);
+        return photoMapper.toDto(photoRepository.findById(id));
     }
 
 }

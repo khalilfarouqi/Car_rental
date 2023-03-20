@@ -4,5 +4,5 @@ import com.app.entity.NotificationGroup;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface NotificationGroupeRepo extends BaseJpaRepository<NotificationGroup> {
+public interface NotificationGroupRepo extends BaseJpaRepository<NotificationGroup> {
 }

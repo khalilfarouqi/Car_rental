@@ -1,47 +1,38 @@
 package com.app.rest.controller;
 
-import com.app.rest.api.BaseApi;
-import com.app.sevice.impl.BaseService;
+import com.app.sevice.IBaseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.io.Serializable;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-public class BaseController<T> implements BaseApi<T> {
-    public final BaseService<T> baseService;
-
-    @Override
-    public Page<T> search(String query, Integer page, Integer size, String order, String sort) {
-        return null;
+public abstract class BaseController<E, D extends Serializable> {
+    public abstract IBaseService<E, D> getService();
+    @GetMapping("/{id}")
+    public D findById(@PathVariable("id") Long id) {
+        return this.getService().findById(id);
     }
 
-    @Override
-    public List<T> getAll() {
-        return baseService.getAll();
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public D save(@RequestBody D dto){
+        return getService().save(dto);
     }
 
-    @Override
-    public T getById(Long id) {
-        return baseService.getById(id);
+    @PutMapping(value = "/updateCar")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public D update(@RequestBody D dto){
+        return getService().update(dto);
     }
 
-    @Override
-    public void save(T t) {
-        baseService.save(t);
-    }
-
-    @Override
-    public void update(T t) {
-        baseService.update(t);
-    }
-
-    @Override
-    public void delete(Long id) {
-        baseService.delete(id);
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable("id") Long id){
+        this.getService().delete(id);
     }
 }

@@ -24,17 +24,17 @@ import java.util.Optional;
 @Service
 public class BaseService<E, D extends Serializable> implements IBaseService<E, D> {
     BaseJpaRepository<E> baseJpaRepository;
-    GenericModelMapper<E, D> mapper;
+    GenericModelMapper<E, D> mapperBase;
     @Override
     @Transactional
     public D save(D dto) {
-        return mapper.toDto(baseJpaRepository.save(mapper.toEntity(dto)));
+        return mapperBase.toDto(baseJpaRepository.save(mapperBase.toEntity(dto)));
     }
 
     @Override
     @Transactional
     public D update(D dto) {
-        return mapper.toDto(baseJpaRepository.save(mapper.toEntity(dto)));
+        return mapperBase.toDto(baseJpaRepository.save(mapperBase.toEntity(dto)));
     }
 
     @Override
@@ -54,7 +54,7 @@ public class BaseService<E, D extends Serializable> implements IBaseService<E, D
         log.debug("find by id = ".concat(id.toString()));
         Optional<E> auditEntity = baseJpaRepository.findById(id);
         if (auditEntity.isPresent()) {
-            return mapper.toDto(auditEntity.get());
+            return mapperBase.toDto(auditEntity.get());
         } else {
             log.debug(String.format("User with ID %s not found", id));
             throw new ResourceNotFoundException(String.format("User with ID %s not found ====> ", id, "findById ====> ", auditEntity.getClass().getSimpleName()));
@@ -74,6 +74,6 @@ public class BaseService<E, D extends Serializable> implements IBaseService<E, D
             size = 20;
         }
         Specification spec = RSQLJPASupport.toSpecification(query);
-        return baseJpaRepository.findAll(spec, PageRequest.of(page, size, Sort.Direction.fromString(order), sort)).map(mapper::toDtoOb);
+        return baseJpaRepository.findAll(spec, PageRequest.of(page, size, Sort.Direction.fromString(order), sort)).map(mapperBase::toDtoOb);
     }
 }

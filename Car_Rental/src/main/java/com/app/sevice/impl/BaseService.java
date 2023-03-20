@@ -1,12 +1,17 @@
 package com.app.sevice.impl;
 
+import io.github.perplexhub.rsql.RSQLJPASupport;
 import com.app.exception.ResourceNotFoundException;
 import com.app.mapper.GenericModelMapper;
 import com.app.repository.BaseJpaRepository;
 import com.app.sevice.IBaseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import oracle.security.crypto.util.InvalidInputException;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,6 +63,17 @@ public class BaseService<E, D extends Serializable> implements IBaseService<E, D
 
     @Override
     public Page<D> rsqlQuery(String query, Integer page, Integer size, String order, String sort) {
-        return null;
+        if (query.isEmpty()) {
+            try {
+                throw new InvalidInputException("Argument is required");
+            } catch (InvalidInputException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if (size > 20) {
+            size = 20;
+        }
+        Specification spec = RSQLJPASupport.toSpecification(query);
+        return baseJpaRepository.findAll(spec, PageRequest.of(page, size, Sort.Direction.fromString(order), sort)).map(mapper::toDtoOb);
     }
 }

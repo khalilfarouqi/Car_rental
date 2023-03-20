@@ -11,4 +11,6 @@ public interface GenericModelMapper<Entity, Dto extends Serializable> {
     Entity toEntity(Dto dto);
 
     List<Entity> toEntity(List<Dto> dtos);
+
+    Object toDtoOb(Object o);
 }

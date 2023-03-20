@@ -1,10 +1,14 @@
 package com.app.rest.controller;
 
 import com.app.dto.OrderDto;
+import com.app.entity.Order;
 import com.app.rest.api.OrderApi;
-import com.app.sevice.impl.ServiceOrderImpl;
+import com.app.sevice.IBaseService;
+import com.app.sevice.impl.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -12,31 +16,26 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-public class OrderController implements OrderApi {
-    private final ServiceOrderImpl serviceOrder;
+public class OrderController extends BaseController<Order, OrderDto> implements OrderApi {
+    private final OrderService serviceOrder;
 
     @Override
-    public List<OrderDto> getAllOrder() {
-        return serviceOrder.getAllOrder();
-    }
-
-    @Override
-    public OrderDto getOrderById(Long id) {
+    public OrderDto getById(@PathVariable("id") Long id) {
         return serviceOrder.getOrderById(id);
     }
 
     @Override
-    public void saveOrder(OrderDto orderDto) {
-        serviceOrder.saveOrder(orderDto);
+    public Page<OrderDto> search(String query, Integer page, Integer size, String order, String sort) {
+        return serviceOrder.rsqlQuery(query, page, size, order, sort);
     }
 
     @Override
-    public void updateOrder(OrderDto orderDto) {
-        serviceOrder.updateOrder(orderDto);
+    public List<OrderDto> getAll() {
+        return serviceOrder.getAllOrder();
     }
 
     @Override
-    public void deleteOrder(Long id) {
-        serviceOrder.deleteOrder(id);
+    public IBaseService<Order, OrderDto> getService() {
+        return serviceOrder;
     }
 }

@@ -1,43 +1,40 @@
 package com.app.rest.controller;
 
 import com.app.dto.NotificationDto;
+import com.app.entity.Notification;
 import com.app.rest.api.NotificationApi;
-import com.app.sevice.impl.ServiceNotificationImpl;
+import com.app.sevice.IBaseService;
+import com.app.sevice.impl.NotificationService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Slf4j
 @RequiredArgsConstructor
 @RestController
-public class NotificationController implements NotificationApi {
+public class NotificationController extends BaseController<Notification, NotificationDto> implements NotificationApi {
 
-    private final ServiceNotificationImpl serviceNotification;
+    private final NotificationService notificationService;
 
     @Override
-    public List<NotificationDto> getAllNotification() {
-        return serviceNotification.getAllNotification();
+    public NotificationDto getById(@PathVariable("id") Long id) {
+        return notificationService.getNotificationById(id);
     }
 
     @Override
-    public NotificationDto getNotificationById(Long id) {
-        return serviceNotification.getNotificationById(id);
+    public Page<NotificationDto> search(String query, Integer page, Integer size, String order, String sort) {
+        return notificationService.rsqlQuery(query, page, size, order, sort);
     }
 
     @Override
-    public void saveNotification(NotificationDto notificationDto) {
-        serviceNotification.saveNotification(notificationDto);
+    public List<NotificationDto> getAll() {
+        return notificationService.getAllNotification();
     }
 
     @Override
-    public void updateNotification(NotificationDto notificationDto) {
-        serviceNotification.updateNotification(notificationDto);
-    }
-
-    @Override
-    public void deleteNotification(Long id) {
-        serviceNotification.deleteNotification(id);
+    public IBaseService<Notification, NotificationDto> getService() {
+        return notificationService;
     }
 }

@@ -1,11 +1,14 @@
 package com.app.rest.controller;
 
 import com.app.dto.PhotoDto;
+import com.app.entity.Photo;
 import com.app.rest.api.PhotoApi;
-import com.app.sevice.impl.ServicePhotoImpl;
-import com.app.sevice.impl.ServiceUserImpl;
+import com.app.sevice.IBaseService;
+import com.app.sevice.impl.PhotoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -13,31 +16,26 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-public class PhotoController implements PhotoApi {
-    private final ServicePhotoImpl servicePhoto;
+public class PhotoController extends BaseController<Photo, PhotoDto> implements PhotoApi {
+    private final PhotoService servicePhoto;
 
     @Override
-    public List<PhotoDto> getAllPhoto() {
-        return servicePhoto.getAllPhoto();
-    }
-
-    @Override
-    public PhotoDto getPhotoById(Long id) {
+    public PhotoDto getById(@PathVariable("id") Long id) {
         return servicePhoto.getPhotoById(id);
     }
 
     @Override
-    public void savePhoto(PhotoDto photoDto) {
-        servicePhoto.savePhoto(photoDto);
+    public Page<PhotoDto> search(String query, Integer page, Integer size, String order, String sort) {
+        return servicePhoto.rsqlQuery(query, page, size, order, sort);
     }
 
     @Override
-    public void updatePhoto(PhotoDto photoDto) {
-        servicePhoto.updatePhoto(photoDto);
+    public List<PhotoDto> getAll() {
+        return servicePhoto.getAllPhoto();
     }
 
     @Override
-    public void deletePhoto(Long id) {
-        servicePhoto.deletePhoto(id);
+    public IBaseService<Photo, PhotoDto> getService() {
+        return servicePhoto;
     }
 }

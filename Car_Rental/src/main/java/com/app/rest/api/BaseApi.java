@@ -3,9 +3,11 @@ package com.app.rest.api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @CrossOrigin(origins = "*")
 public interface BaseApi<E, D extends Serializable> {
@@ -26,4 +28,18 @@ public interface BaseApi<E, D extends Serializable> {
                    @RequestParam(defaultValue = "asc") String order,
                    @RequestParam(defaultValue = "id") String sort
     );
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    D save(@RequestBody D d);
+
+    @PutMapping
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    D update(@RequestBody D d);
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void delete(@PathVariable Long id);
+
+    @GetMapping
+    List<D> getAll();
 }

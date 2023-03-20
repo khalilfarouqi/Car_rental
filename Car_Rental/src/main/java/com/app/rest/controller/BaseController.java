@@ -35,4 +35,6 @@ public abstract class BaseController<E, D extends Serializable> {
     public void delete(@PathVariable("id") Long id){
         this.getService().delete(id);
     }
+
+
 }

@@ -5,6 +5,7 @@ import com.app.repository.CarRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Car;
@@ -17,8 +18,10 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class ServiceCarImpl {
+public class CarService extends BaseService<Car, CarDto>{
+    @Autowired
     private final CarRepo carRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     public List<CarDto> getAllCar(){
@@ -29,18 +32,6 @@ public class ServiceCarImpl {
 
     public CarDto getCarById(Long id){
         return modelMapper.map(carRepository.findById(id), CarDto.class);
-    }
-
-    public void saveCar(CarDto carDto){
-        carRepository.save(modelMapper.map(carDto, Car.class));
-    }
-
-    public void updateCar(CarDto carDto){
-        carRepository.save(modelMapper.map(carDto, Car.class));
-    }
-
-    public void deleteCar(Long id){
-        carRepository.deleteById(id);
     }
 
 }

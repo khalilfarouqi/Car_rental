@@ -5,6 +5,7 @@ import com.app.repository.PhotoRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Photo;
@@ -17,8 +18,10 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class ServicePhotoImpl {
+public class PhotoService extends BaseService<Photo, PhotoDto> {
+    @Autowired
     private final PhotoRepo photoRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     public List<PhotoDto> getAllPhoto(){
@@ -31,15 +34,4 @@ public class ServicePhotoImpl {
         return modelMapper.map(photoRepository.findById(id), PhotoDto.class);
     }
 
-    public void savePhoto(PhotoDto photoDto){
-        photoRepository.save(modelMapper.map(photoDto, Photo.class));
-    }
-
-    public void updatePhoto(PhotoDto photoDto){
-        photoRepository.save(modelMapper.map(photoDto, Photo.class));
-    }
-
-    public void deletePhoto(Long id){
-        photoRepository.deleteById(id);
-    }
 }

@@ -6,6 +6,7 @@ import com.app.repository.ClientRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -17,8 +18,10 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class ServiceClientImpl {
+public class ClientService extends BaseService<Client, ClientDto> {
+    @Autowired
     private final ClientRepo clientRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     public List<ClientDto> getAllClient(){
@@ -31,15 +34,4 @@ public class ServiceClientImpl {
         return modelMapper.map(clientRepository.findById(id), ClientDto.class);
     }
 
-    public void saveClient(ClientDto clientDto){
-        clientRepository.save(modelMapper.map(clientDto, Client.class));
-    }
-
-    public void updateClient(ClientDto clientDto){
-        clientRepository.save(modelMapper.map(clientDto, Client.class));
-    }
-
-    public void deleteClient(Long id){
-        clientRepository.deleteById(id);
-    }
 }

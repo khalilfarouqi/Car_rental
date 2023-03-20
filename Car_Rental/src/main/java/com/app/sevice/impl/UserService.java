@@ -5,6 +5,7 @@ import com.app.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.User;
@@ -18,7 +19,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class UserService extends BaseService<User, UserDto> {
+    @Autowired
     private final UserRepo userRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     public List<UserDto> getAllUser(){
@@ -31,15 +34,4 @@ public class UserService extends BaseService<User, UserDto> {
         return modelMapper.map(userRepository.findById(id), UserDto.class);
     }
 
-    public UserDto saveUser(UserDto userDto){
-        return modelMapper.map(userRepository.save(modelMapper.map(userDto, User.class)), UserDto.class);
-    }
-
-    public UserDto updateUser(UserDto userDto){
-        return modelMapper.map(userRepository.save(modelMapper.map(userDto, User.class)), UserDto.class);
-    }
-
-    public void deleteUser(Long id){
-        userRepository.deleteById(id);
-    }
 }

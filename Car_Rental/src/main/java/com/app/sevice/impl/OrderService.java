@@ -5,6 +5,7 @@ import com.app.repository.OrderRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.app.entity.Order;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,8 +17,10 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class ServiceOrderImpl {
+public class OrderService extends BaseService<Order, OrderDto> {
+    @Autowired
     private final OrderRepo orderRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     public List<OrderDto> getAllOrder(){
@@ -30,15 +33,4 @@ public class ServiceOrderImpl {
         return modelMapper.map(orderRepository.findById(id), OrderDto.class);
     }
 
-    public void saveOrder(OrderDto orderDto){
-        orderRepository.save(modelMapper.map(orderDto, Order.class));
-    }
-
-    public void updateOrder(OrderDto orderDto){
-        orderRepository.save(modelMapper.map(orderDto, Order.class));
-    }
-
-    public void deleteOrder(Long id){
-        orderRepository.deleteById(id);
-    }
 }

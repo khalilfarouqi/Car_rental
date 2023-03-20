@@ -6,6 +6,7 @@ import com.app.repository.NotificationRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +17,10 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class ServiceNotificationImpl {
+public class NotificationService extends BaseService<Notification, NotificationDto> {
+    @Autowired
     private final NotificationRepo notificationRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     public List<NotificationDto> getAllNotification(){
@@ -30,15 +33,4 @@ public class ServiceNotificationImpl {
         return modelMapper.map(notificationRepository.findById(id), NotificationDto.class);
     }
 
-    public void saveNotification(NotificationDto notificationDto){
-        notificationRepository.save(modelMapper.map(notificationDto, Notification.class));
-    }
-
-    public void updateNotification(NotificationDto notificationDto){
-        notificationRepository.save(modelMapper.map(notificationDto, Notification.class));
-    }
-
-    public void deleteNotification(Long id){
-        notificationRepository.deleteById(id);
-    }
 }

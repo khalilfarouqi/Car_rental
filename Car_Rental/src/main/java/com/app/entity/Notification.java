@@ -25,5 +25,5 @@ public class Notification {
     private User user;
 
     @OneToOne
-    private NotificationGroupe notificationGroupe;
+    private NotificationGroup notificationGroup;
 }

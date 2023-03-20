@@ -17,7 +17,7 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
-public class ServiceUserImpl {
+public class UserService extends BaseService<User, UserDto> {
     private final UserRepo userRepository;
     private final ModelMapper modelMapper;
 
@@ -31,12 +31,12 @@ public class ServiceUserImpl {
         return modelMapper.map(userRepository.findById(id), UserDto.class);
     }
 
-    public void saveUser(UserDto userDto){
-        userRepository.save(modelMapper.map(userDto, User.class));
+    public UserDto saveUser(UserDto userDto){
+        return modelMapper.map(userRepository.save(modelMapper.map(userDto, User.class)), UserDto.class);
     }
 
-    public void updateUser(UserDto userDto){
-        userRepository.save(modelMapper.map(userDto, User.class));
+    public UserDto updateUser(UserDto userDto){
+        return modelMapper.map(userRepository.save(modelMapper.map(userDto, User.class)), UserDto.class);
     }
 
     public void deleteUser(Long id){
